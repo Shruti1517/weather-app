@@ -1,0 +1,6 @@
+<app-page-header [heading]="'Forecast Chart of 7 days'" [icon]="'fa-desktop'"></app-page-header>
+<div style="height :600px; width:1200px;">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+      [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>

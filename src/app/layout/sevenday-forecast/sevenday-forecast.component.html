@@ -1,0 +1,38 @@
+<app-page-header [heading]="'7 Day Forecast'" [icon]="'fa-desktop'"></app-page-header>
+<div class="example-header">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+</div>
+
+<div class="example-container mat-elevation-z8">
+    
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        
+        
+        <ng-container matColumnDef="temp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Temperature. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.temp }} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="temp_max">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Max Temperature </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.temp_max }} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="temp_min">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Min Temperature </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.temp_min }} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="weather_desc">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Weather Description </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.weather_desc }} </mat-cell> 
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
+    
+</div>

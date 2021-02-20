@@ -1,0 +1,24 @@
+<app-page-header [heading]="'Current Weather'" [icon]="'fa-desktop'"></app-page-header>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="form-inline my-2 my-lg-0" style="position:absolute;top: 144px;">
+        <input class="form-control mr-sm-2" (keydown.enter)="getCurrentWeatherData($event.target.value)" placeholder="Search By City Name" type="text" />
+        <span>Press Enter to search</span>
+    </div>
+    <h1>Current Weather Details - </h1>
+    <div *ngFor="let data of currentData;">
+        <h3>  Location : {{data.name}},{{data.country}}</h3>
+        <h3>  Current weather description : {{data.description}} </h3>
+        <h3>  Current temperature : {{data.temperature}} </h3>
+        <h3>  Today's high temperature : {{data.temp_max}} </h3>
+        <h3>  Today's low temperature : {{data.temp_min}} </h3>
+        <h3 *ngIf="toggle == true">  Wind Speed : {{data.wind_speed}} </h3>
+        <h3 *ngIf="toggle == true">  Humidity : {{data.humidity}} </h3>
+        <h3 *ngIf="toggle == true">  Pressure : {{data.pressure}} </h3>
+        <h3 *ngIf="toggle == true">  Sunrise/Sunset TimeZone : {{data.timezone}} </h3>
+    </div>
+    
+    <p>
+        <a class="btn btn-primary btn-lg" style="position: absolute;bottom: 62px;" (click)="showCurrentdata(this.toggle)" role="button">See more data</a>
+    </p>
+</div>
